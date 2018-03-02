@@ -4,7 +4,7 @@
 <h4>All stores:</h4>
 <ul>
   <% @stores.each do |store| %>
-    <li> <a href="/stores/<%= store.id %>"><%= store.name %></a> </li>
+    <li> <a href="/stores/<%= store.id %>"><%= store.name %></a> <a href="/stores/<%= store.id %>/edit">Update or Delete</a></li>
   <% end %>
 </ul>
 <br>
@@ -16,3 +16,5 @@
 
   <button type="submit">Add store</button>
 </form>
+<br>
+<a href="/brands">Brands Home</a>
