@@ -4,7 +4,7 @@
 <h4>Brands: </h4>
 <ul>
   <% @store.brands.each do |brand| %>
-    <li> <%= brand.name %> <%= brand.price %></li>
+    <li> <%= brand.name %> <%= "$#{'%.2f' % (brand.price.to_f/100)}" %></li>
   <% end %>
 </ul>
 <br>

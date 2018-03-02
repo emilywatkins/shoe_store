@@ -5,7 +5,7 @@ describe(Brand) do
 
   describe '#capitalize_name' do
     it("capitalizes the first letter of each word in the name") do
-      brand = Brand.create({:name => 'the shoe brand'})
+      brand = Brand.create({:name => 'the shoe brand', :price => 50})
       expect(brand.name).to(eq('The Shoe Brand'))
     end
   end
@@ -18,12 +18,5 @@ describe(Brand) do
   it("validates presence of price") do
     brand = Brand.new({:price => ''})
     expect(brand.save).to(eq(false))
-  end
-
-  describe '#number_to_currency' do
-    it("converts inputted numbers to $0.00 format") do
-      brand = Brand.create({:name => 'the shoe brand', :price => 50})
-      expect(brand.price).to(eq('$50.00'))
-    end
   end
 end

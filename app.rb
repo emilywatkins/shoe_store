@@ -53,7 +53,7 @@ end
 
 post('/brands') do
   name = params['name']
-  price = params['price']
+  price = (params['price'].to_i)*100
   brand = Brand.find_or_create_by({:name => name, :price => price})
   redirect("/brands/".concat(brand.id.to_s))
 end

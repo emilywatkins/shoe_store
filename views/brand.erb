@@ -1,5 +1,5 @@
-<h2><%= @brand.name %></h2>
-<h2><%= @brand.price %></h2>
+<h2>Name: <%= @brand.name %></h2>
+<h2>Price: <%= "$#{'%.2f' % (@brand.price.to_f/100)}" %></h2>
 <br>
 <a href="/brands">Brands Home</a>
 <a href="/stores">Stores Home</a>
