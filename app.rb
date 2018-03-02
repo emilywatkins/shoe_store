@@ -24,5 +24,18 @@ get('/stores/:id') do
 end
 
 get('/brands') do
+  @brands = Brand.all
   erb(:brands)
+end
+
+post('/brands') do
+  name = params['name']
+  price = params['price']
+  @brand = Brand.create({:name => name, :price => price})
+  redirect("/brands/".concat(@brand.id.to_s))
+end
+
+get('/brands/:id') do
+  @brand = Brand.find(params['id'].to_i)
+  erb(:brand)
 end
