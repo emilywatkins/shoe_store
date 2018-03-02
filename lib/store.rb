@@ -1,3 +1,3 @@
-class Brand < ActiveRecord::Base
-
+class Store < ActiveRecord::Base
+  
 end
