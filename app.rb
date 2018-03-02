@@ -14,7 +14,7 @@ end
 
 post('/stores') do
   name = params['name']
-  @store = Store.create({:name => name})
+  @store = Store.find_or_create_by({:name => name})
   redirect("/stores/".concat(@store.id.to_s))
 end
 
@@ -38,8 +38,9 @@ end
 
 delete('/stores/:id') do
   @store = Store.find(params['id'].to_i)
-  @store.destroy({:name => name})
+  @store.destroy
   @stores = Store.all
+  erb(:stores)
 end
 
 get('/brands') do
@@ -50,7 +51,7 @@ end
 post('/brands') do
   name = params['name']
   price = params['price']
-  brand = Brand.create({:name => name, :price => price})
+  brand = Brand.find_or_create_by({:name => name, :price => price})
   redirect("/brands/".concat(brand.id.to_s))
 end
 
