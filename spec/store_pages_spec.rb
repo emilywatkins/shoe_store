@@ -19,3 +19,13 @@ describe 'the store edit path', {:type => :feature} do
     expect(page).to have_content('The New Shoe Store')
   end
 end
+
+describe 'the store delete path', {:type => :feature} do
+  it 'takes the user to the stores edit page where they can edit a store' do
+    Store.create({:name => 'The Shoe Store'})
+    visit '/stores'
+    click_link('Update or Delete')
+    click_button('Update')
+    expect(page).to have_content('')
+  end
+end
