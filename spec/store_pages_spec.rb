@@ -36,7 +36,7 @@ describe 'the brand add path', {:type => :feature} do
     Brand.create({:name => 'The Shoe Brand', :price => 50})
     visit '/stores'
     click_link('The Shoe Store')
-    select('The Shoe Brand', :from => 'brand')
+    select('The Shoe Brand', :from => 'Select Brand')
     click_button('Add Brand')
     expect(page).to have_content('The Shoe Brand')
   end

@@ -66,6 +66,6 @@ end
 post('/stores/:id/brands') do
   brand = Brand.find(params['brand'].to_i)
   store = Store.find(params['id'].to_i)
-  store.brands << brand
+  store.brands << brand unless store.brands.include?(brand)
   redirect("/stores/".concat(store.id.to_s))
 end
