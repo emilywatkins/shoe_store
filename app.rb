@@ -36,6 +36,12 @@ patch('/stores/:id') do
   erb(:store)
 end
 
+delete('/stores/:id') do
+  @store = Store.find(params['id'].to_i)
+  @store.destroy({:name => name})
+  @stores = Store.all
+end
+
 get('/brands') do
   @brands = Brand.all
   erb(:brands)
