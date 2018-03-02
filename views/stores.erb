@@ -1,1 +1,18 @@
-<h2>stores</h2>
+<h2>Stores</h2>
+<br>
+
+<h4>All stores:</h4>
+<ul>
+  <% @stores.each do |store| %>
+    <li> <a href="/stores/<%= store.id %>"><%= store.name %></a> </li>
+  <% end %>
+</ul>
+<br>
+
+<h4>Add a new store:</h4>
+<form action="/stores" method="post">
+  <label for="name">Name of store</label>
+  <input id="name" name="name" type="text">
+
+  <button type="submit">Add store</button>
+</form>
