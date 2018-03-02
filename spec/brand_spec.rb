@@ -19,4 +19,11 @@ describe(Brand) do
     brand = Brand.new({:price => ''})
     expect(brand.save).to(eq(false))
   end
+
+  describe '#number_to_currency' do
+    it("converts inputted numbers to $0.00 format") do
+      brand = Brand.create({:name => 'the shoe brand', :price => 50})
+      expect(brand.price).to(eq('$50.00'))
+    end
+  end
 end

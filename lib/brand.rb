@@ -6,4 +6,7 @@ class Brand < ActiveRecord::Base
   def capitalize_name
     self.name = name.split.map(&:capitalize).join(' ')
   end
+
+  def number_to_currency
+  end
 end
