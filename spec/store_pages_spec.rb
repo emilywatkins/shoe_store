@@ -33,10 +33,10 @@ end
 describe 'the brand add path', {:type => :feature} do
   it 'takes the user to the store page where they can add brands to that store' do
     Store.create({:name => 'The Shoe Store'})
-    Brand.create({:name => 'The Shoe Brand'})
+    Brand.create({:name => 'The Shoe Brand', :price => 50})
     visit '/stores'
     click_link('The Shoe Store')
-    select('The Shoe Brand', :from => 'Select Brand')
+    select('The Shoe Brand', :from => 'brand')
     click_button('Add Brand')
     expect(page).to have_content('The Shoe Brand')
   end
